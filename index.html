@@ -76,6 +76,28 @@
     <img class="title" src="imgs/popcat.svg" alt="POPCAT">
     <div class="cat-img" id="p">2737</div>
 </div>
+// javaScript syntax
+<script>
+    let popCount = 700;
+    let htmlCount = document.getElementById("p");
+    //htmlCount.innerHTML = popCount; //把內容當HTML, 較舊用法
+    htmlCount.textContent = popCount; //把內容全當文字, 較新用法
+
+    function updateCount() {
+        // 1. 計數器加一
+        popCount++;
+        htmlCount.textContent = popCount;
+
+        // 2. 切換圖片
+        htmlCount.id = "op";
+        setTimeout(() => {
+            htmlCount.id = "p";
+        }, 100);
+    }
+    document.addEventListener("click", updateCount);
+    document.addEventListener("keydown", updateCount);
+
+</script>
 
 </body>
 </html>
