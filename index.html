@@ -79,25 +79,35 @@
 // javaScript syntax
 <script>
     let popCount = 700;
-    let htmlCount = document.getElementById("p");
-    //htmlCount.innerHTML = popCount; //把內容當HTML, 較舊用法
-    htmlCount.textContent = popCount; //把內容全當文字, 較新用法
+    let catMouth = document.getElementById("p");
+    //catMouth.innerHTML = popCount; //把內容當HTML, 較舊用法
+    catMouth.textContent = popCount; //把內容全當文字, 較新用法
 
     function updateCount() {
         // 1. 計數器加一
         popCount++;
-        htmlCount.textContent = popCount;
+        catMouth.textContent = popCount;
 
         // 2. 切換圖片
-        htmlCount.id = "op";
-        setTimeout(() => {
-            htmlCount.id = "p";
-        }, 100);
+        catMouth.id = "op";
+        // setTimeout(() => {
+        //     catMouth.id = "p";
+        // }, 100);
     }
-    document.addEventListener("click", updateCount);
-    document.addEventListener("keydown", updateCount);
+    const closeMouth = () => {
+        catMouth.id = "p";
+    };
 
-</script>
+    //document.addEventListener("click", updateCount);
+
+    document.addEventListener("pointerdown", updateCount);
+    document.addEventListener("pointerup", closeMouth)
+
+    document.addEventListener("keydown", updateCount);
+    document.addEventListener("keyup", closeMouth);
+
+
+</script> -->
 
 </body>
 </html>
